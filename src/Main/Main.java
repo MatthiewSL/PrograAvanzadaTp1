@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
         // Ruta del archivo PGM (asegúrate de poner la ruta correcta aquí)
-        String rutaArchivo = "C:\\Users\\Mathieu\\Desktop\\Universidad\\+++++++++++++++++++++Programación avanzada (Ju14a18hs)/output_image_p2_16bit.pgm"; // Cambia esto a la ruta real de tu archivo .pgm
+        String rutaArchivo = "fotos/output_image_p2_16bit.pgm"; // Cambia esto a la ruta real de tu archivo .pgm
         
         try {
             // Leer la imagen desde el archivo
@@ -35,11 +35,11 @@ public class Main {
                 // Mostrar la imagen
                 MostrarImagen.mostrar(matriz, width, height, maxGray);
                 
-         
-                //MatrizImagen matrizSuav = Filtros.filtroSuavizadoPromedioGaussiano(matriz, width, height, maxGray);
-                //MostrarImagen.mostrar(matrizSuav, width, height, maxGray);
-                //ESTA ES LA SUAVIZADA
+                //ESTA ES LA SUAVIZADA PROM
                 //MatrizImagen matrizSuav = Filtros.filtroSuavizadoPromedio(matriz, width, height, maxGray);
+                //MostrarImagen.mostrar(matrizSuav, width, height, maxGray);
+                //ESTA ES LA SUAVIZADA PROM GAUSS
+                //MatrizImagen matrizSuav = Filtros.filtroSuavizadoPromedioGaussiano(matriz, width, height, maxGray);
                 //MostrarImagen.mostrar(matrizSuav, width, height, maxGray);
                 //ESTA ES LA SOBEL
                 MatrizImagen matrizSobel = Filtros.aplicarFiltroSobel(matriz, width, height, maxGray);
@@ -47,6 +47,12 @@ public class Main {
                 //ESTA ES LA PREWITT
                 MatrizImagen matrizPrewitt = Filtros.aplicarFiltroPrewitt(matriz, width, height, maxGray);
                 MostrarImagen.mostrar(matrizPrewitt, width, height, maxGray);
+                //ESTA ES LA LAPLACIANA
+                //MatrizImagen matrizLaplaciana = Filtros.aplicarFiltroLaplaciano(matriz, width, height, maxGray);
+                //MostrarImagen.mostrar(matrizLaplaciana, width, height, maxGray);
+                //ESTA ES LA REPUJADA
+                //MatrizImagen matrizRepujada = Filtros.aplicarFiltroRepujado(matriz, width, height, maxGray);
+                //MostrarImagen.mostrar(matrizRepujada, width, height, maxGray);
                 
             } else {
                 System.err.println("No se pudo leer la imagen.");
