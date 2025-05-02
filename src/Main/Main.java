@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String rutaArchivo = "fotos/output_image_p2_16bit.pgm"; 
+        String rutaArchivo = "fotos/output_image_p2_16bit.pgm";
         
         try {
             
@@ -46,8 +46,8 @@ public class Main {
                 //MatrizImagen matrizPrewitt = Filtros.aplicarFiltroPrewitt(matriz, width, height, maxGray);
                 //MostrarImagen.mostrar(matrizPrewitt, width, height, maxGray);
                 //ESTA ES LA LAPLACIANA
-                MatrizImagen matrizLaplaciana = Filtros.aplicarFiltroLaplaciano(matriz, width, height, maxGray);
-                MostrarImagen.mostrar(matrizLaplaciana, width, height, maxGray);
+                //MatrizImagen matrizLaplaciana = Filtros.aplicarFiltroLaplaciano(matriz, width, height, maxGray);
+                //MostrarImagen.mostrar(matrizLaplaciana, width, height, maxGray);
                 //ESTA ES LA REPUJADA
                 MatrizImagen matrizRepujada = Filtros.aplicarFiltroRepujado(matriz, width, height, maxGray);
                 MostrarImagen.mostrar(matrizRepujada, width, height, maxGray);

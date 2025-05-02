@@ -22,7 +22,6 @@ public class MostrarImagen {
             }
         }
 
-        // Mostrar la imagen en una ventana
         JFrame frame = new JFrame("Imagen PGM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(width, height);
