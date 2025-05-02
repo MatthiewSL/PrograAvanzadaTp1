@@ -1,10 +1,4 @@
 package Filtros;
-//distintos kernels como suavizado, Sobel, Prewitt, Laplaciano o repujado, 
-
-//que permiten desenfocar, detectar bordes, realzar contornos o generar efectos visuales
-
-//import java.awt.image.BufferedImage;
-//import javax.swing.*;
 
 import Main.MatrizImagen;
 

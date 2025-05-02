@@ -3,7 +3,7 @@ package LecturaPGM;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 import Main.MatrizImagen;
-//import java.awt.*;
+
 
 public class MostrarImagen {
 
@@ -17,7 +17,7 @@ public class MostrarImagen {
             for (int j = 0; j < width; j++) {
                 int gray = matriz.getValue(i, j);
                 int grayEscalado = (int)(gray * escala);
-                grayEscalado = Math.max(0, Math.min(255, grayEscalado)); // asegurarse de que está en [0,255]
+                grayEscalado = Math.max(0, Math.min(255, grayEscalado)); 
                 bufferedImage.getRaster().setSample(j, i, 0, grayEscalado);
             }
         }

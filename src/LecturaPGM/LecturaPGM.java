@@ -13,21 +13,17 @@ public class LecturaPGM {
             Scanner scanner = new Scanner(bufferedInput);
             scanner.useLocale(Locale.US);
 
-            // Leer el magic number
             String magicNumber = leerSiguienteValor(scanner);
 
-            // Leer ancho, alto y nivel máximo de gris, ignorando comentarios
             int width = Integer.parseInt(leerSiguienteValor(scanner));
             int height = Integer.parseInt(leerSiguienteValor(scanner));
             int maxGray = Integer.parseInt(leerSiguienteValor(scanner));
-
-            // Saltar el byte del salto de línea final del encabezado
             int b;
+            
             do {
                 b = bufferedInput.read();
             } while (b == '\r' || b == '\n');
 
-            // Ya hemos leído un byte de más: lo volvemos a meter en el flujo
             if (b != -1) {
                 bufferedInput.unread(b);
             }
@@ -35,7 +31,7 @@ public class LecturaPGM {
             int[][] image = new int[height][width];
 
             if (magicNumber.equals("P2")) {
-                // Lectura ASCII
+
                 for (int i = 0; i < height; i++) {
                     for (int j = 0; j < width; j++) {
                         image[i][j] = Integer.parseInt(leerSiguienteValor(scanner));
@@ -43,7 +39,7 @@ public class LecturaPGM {
                 }
 
             } else if (magicNumber.equals("P5")) {
-                // Lectura binaria
+
                 boolean is16Bit = maxGray > 255;
                 DataInputStream data = new DataInputStream(bufferedInput);
 
@@ -74,12 +70,11 @@ public class LecturaPGM {
         }
     }
 
-    // Método auxiliar que salta comentarios y devuelve el siguiente valor útil
     private static String leerSiguienteValor(Scanner scanner) {
         while (scanner.hasNext()) {
             String token = scanner.next();
             if (token.startsWith("#")) {
-                scanner.nextLine(); // Saltar comentario completo
+                scanner.nextLine();
             } else {
                 return token;
             }
