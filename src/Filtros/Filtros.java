@@ -47,7 +47,7 @@ public class Filtros {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				int suma = 0;
-				int pesoTotal = 0;
+				int pesoTotal = 16;
 
 				for (int di = -1; di <= 1; di++) {
 					for (int dj = -1; dj <= 1; dj++) {
@@ -57,7 +57,6 @@ public class Filtros {
 						if (cordX >= 0 && cordX < height && cordY >= 0 && cordY < width) {
 							int peso = pesosVecinos[di + 1][dj + 1];
 							suma += matriz.getValue(cordX, cordY) * peso;
-							pesoTotal++;
 						}
 					}
 				}
