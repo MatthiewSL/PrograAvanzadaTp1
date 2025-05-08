@@ -7,7 +7,6 @@ public class Filtros {
 	public static MatrizImagen filtroSuavizadoPromedio(MatrizImagen matriz, int width, int height, int maxGray) {
 		int[][] suavizada = new int[height][width];
 
-		// Coordenada de desplazamientos para sacar los vecinos
 		int[][] vecinos = {
 				{ -1, -1 }, { -1, 0 }, { -1, 1 },
 				{  0, -1 }, {  0, 0 }, {  0, 1 },
@@ -20,8 +19,8 @@ public class Filtros {
 				int contador = 0;
 
 				for (int k = 0; k < vecinos.length; k++) {
-					int coordX = i + vecinos[k][0];  // desplazamiento en X
-					int coordY = j + vecinos[k][1];  // desplazamiento en Y
+					int coordX = i + vecinos[k][0];
+					int coordY = j + vecinos[k][1];
 
 					// Si esta en los limites:
 					if (coordX >= 0 && coordX < height && coordY >= 0 && coordY < width) {
@@ -41,7 +40,6 @@ public class Filtros {
 			int maxGray) {
 		int[][] suavizada = new int[height][width];
 
-		// Máscara Gaussiana 3x3 (Aca los promedios son ajustables)
 		int[][] pesosVecinos = { { 1, 2, 1 }, { 2, 4, 2 }, { 1, 2, 1 } };
 
 		for (int i = 0; i < height; i++) {
@@ -116,7 +114,6 @@ public class Filtros {
 	public static MatrizImagen aplicarFiltroPrewitt(MatrizImagen imagen, int width, int height, int maxGray) {
 		int[][] originalMatriz = imagen.getMatriz();
 
-		// Crear matrices para los bordes horizontales y verticales
 		int[][] prewittHorizontal = new int[height][width];
 		int[][] prewittVertical = new int[height][width];
 
@@ -136,9 +133,8 @@ public class Filtros {
 					}
 				}
 
-				int magnitud = (int) Math.sqrt(gx * gx + gy * gy);
-				prewittHorizontal[i][j] = Math.min(magnitud, maxGray);
-				prewittVertical[i][j] = Math.min(magnitud, maxGray);
+				prewittHorizontal[i][j] = Math.min(Math.abs(gx), maxGray);
+				prewittVertical[i][j] = Math.min(Math.abs(gy), maxGray);
 			}
 		}
 
@@ -180,7 +176,10 @@ public class Filtros {
 		return new MatrizImagen(resultado, maxGray);
 	}
 
-	private static final int[][] REPUJADO_KERNEL = { { -1, -1, 0 }, { -1, 0, 1 }, { 0, 1, 1 } };
+	private static final int[][] REPUJADO_KERNEL =
+			{ { -1, -1, -1 },
+			{0, 0, 0 },
+			{ 1, 1, 1 } };
 
 	public static MatrizImagen aplicarFiltroRepujado(MatrizImagen matriz, int width, int height, int maxGray) {
 		int[][] resultado = new int[height][width];
